@@ -14,7 +14,7 @@ export default {
     titleTemplate: '%s - movie-searcher-front',
     title: 'movie-searcher-front',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
