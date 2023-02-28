@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+const envPath = `config/.env.${process.env.ENV || 'local'}`
+require('dotenv').config({ path: envPath })
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -82,5 +84,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  env: {
+    movieSearcherUrl: process.env.MOVIE_SEARCHER_URL,
   }
 }
