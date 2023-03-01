@@ -5,7 +5,7 @@
       fixed
       app
     >
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+      <v-toolbar-title class="app-title" @click="$router.push('/')">{{ title }}</v-toolbar-title>
       <v-spacer />
     </v-app-bar>
     <v-main>
@@ -29,8 +29,16 @@ export default {
     return {
       clipped: false,
       fixed: false,
-      title: 'Movie Searcher'
+      title: '映画れこめんでーたー'
     }
   }
 }
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&display=swap');
+.app-title {
+  font-family: 'Shippori Mincho', serif;
+  cursor: pointer;
+}
+</style>
