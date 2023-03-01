@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="6">
-        <v-card>
+        <v-card :to="`/movie/${id}`">
           <v-card-title class="text-h5 justify-center">{{title}}({{year}})</v-card-title>
           <v-card-subtitle class="sub-title">スコア:{{CosineSimilarity}}</v-card-subtitle>
         </v-card>
@@ -15,6 +15,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     title: {
       type: String,
       required: true

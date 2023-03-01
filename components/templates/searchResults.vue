@@ -3,6 +3,7 @@
     <h2 class="result-title" v-if="similarMovies.length > 0">検索結果</h2>
     <div v-for="movie in similarMovies">
       <MoleculesResultCard
+        :id="movie.id"
         :title="movie.Title"
         :CosineSimilarity="movie.CosineSimilarity"
         :year="movie.Year"
