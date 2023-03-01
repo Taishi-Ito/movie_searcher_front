@@ -2,12 +2,14 @@ import axios from 'axios'
 
 export const state = () => ({
   similarMovies: [],
-  movieDetail: {}
+  movieDetail: {},
+  isLoading: false
 })
 
 export const getters = ({
   similarMovies: state => state.similarMovies,
   movieDetail: state => state.movieDetail,
+  isLoading: state => state.isLoading,
 })
 
 export const mutations = {
@@ -16,16 +18,21 @@ export const mutations = {
   },
   updateMovieDetail: function(state, payload) {
     state.movieDetail = payload
+  },
+  switchLoading: function(state) {
+    state.isLoading = !state.isLoading
   }
 }
 
 export const actions = {
   async FetchSimilarMovies(context, text) {
+    context.commit('switchLoading')
     const url = `${process.env.movieSearcherUrl}/api/similar`;
     const requestBody = JSON.stringify({"text": text})
     await axios.post(url, requestBody, {headers: {'Content-Type': 'application/json'}})
       .then((res) =>{
         context.commit('updateSimilarMovies', res.data)
+        context.commit('switchLoading')
       })
       .catch( e => {
         console.log('【e】', e)

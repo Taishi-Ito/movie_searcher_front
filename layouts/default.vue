@@ -9,6 +9,7 @@
       <v-spacer />
     </v-app-bar>
     <v-main>
+      <AtomsLoadingIcon />
       <v-container>
         <Nuxt />
       </v-container>
