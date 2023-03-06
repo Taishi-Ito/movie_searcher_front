@@ -35,7 +35,8 @@ export const actions = {
         context.commit('switchLoading')
       })
       .catch( e => {
-        console.log('【e】', e)
+        context.commit('switchLoading')
+        alert(e)
       })
   },
   async FetchMovieDetail(context, id) {
@@ -45,7 +46,8 @@ export const actions = {
         context.commit('updateMovieDetail', res.data)
       })
       .catch( e => {
-        console.log('【e】', e)
+        context.commit('switchLoading')
+        alert(e)
       })
   }
 }
